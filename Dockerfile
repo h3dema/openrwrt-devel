@@ -18,18 +18,13 @@ RUN mkdir /openwrt && \
     cd /openwrt && \
     mv packages/* backfire/package/
 
-# make default configuration
-RUN useradd --home /home/openwrt openwrt && \
-    chown -R openwrt /openwrt && \
-    su - openwrt && \
-    cd /openwrt/backfire && \
-    make defconfig && \
-    exit
-
-COPY bashrc /home/openwrt/.bashrc
-
 RUN cd /openwrt/backfire && \
     echo 'src-git openvswitch git://github.com/schuza/openvswitch.git' >> feeds.conf
     ./scripts/feeds update openvswitch && \
     ./scripts/feeds install -a -p openvswitch
-  
+
+# make default configuration
+RUN useradd --home /home/openwrt openwrt && \
+    chown -R openwrt /openwrt
+
+COPY bashrc /home/openwrt/.bashrc
