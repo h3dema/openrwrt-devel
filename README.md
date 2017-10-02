@@ -19,7 +19,7 @@ The following commands (1) download, install and configure the container with al
 
 ```bash
 docker build -t openwrt github.com/h3dema/openwrt-devel.git
-docker run -w /openwrt/backfire -it openwrt
+docker run -w /openwrt/backfire -u openwrt -it openwrt
 ```
 
 ### Compiling the OpenWRT Backfire
