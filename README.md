@@ -24,12 +24,19 @@ docker run -w /openwrt/backfire -it openwrt
 
 ### Compiling the OpenWRT Backfire
 
-To select packages
+#### To select packages
+
+Use menuconfig to select the appropriate platform. The default is brcm_2_4 (for our linksys devices).
+You can also use the menu to select which package will be compiled and available to install (using opkg).
+
 ```bash
 make menuconfig
 ```
 
-To compile
+#### To compile
+
 ```bash
 make -j4
 ```
+This takes time...
+
