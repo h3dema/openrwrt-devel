@@ -26,5 +26,8 @@ RUN cd /openwrt/backfire && \
 # make default configuration
 RUN useradd --home /home/openwrt openwrt && \
     chown -R openwrt /openwrt
+    chown -R openwrt /home/openwrt
+
+
 
 COPY bashrc /home/openwrt/.bashrc
