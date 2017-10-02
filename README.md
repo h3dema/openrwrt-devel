@@ -1,4 +1,4 @@
-# Openrwrt-Devel
+# Openwrt-Devel
 
 
 # Installation
