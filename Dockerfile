@@ -10,7 +10,7 @@ RUN mkdir /openwrt && \
     git clone http://git.openwrt.org/10.03/openwrt.git && \
     git clone git clone http://git.openwrt.org/10.03/packages.git && \
     mv openwrt backfire && \
-    cd openwrt && \
+    cd backfire && \
     ./scripts/feeds update -a && \
     ./scripts/feeds install -a
     
