@@ -14,9 +14,9 @@ RUN mkdir /openwrt && \
     cd backfire && \
     ./scripts/feeds update -a && \
     ./scripts/feeds install -a && \
-    mv feeds.conf.default feeds.conf
-    cd /openwrt
-    mv packages/* backfire/package/ && \
+    mv feeds.conf.default feeds.conf && \
+    cd /openwrt && \
+    mv packages/* backfire/package/
 
 # make default configuration
 RUN useradd --home /home/openwrt openwrt && \
