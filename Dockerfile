@@ -7,8 +7,8 @@ RUN apt-get -y update && \
 
 RUN mkdir /openwrt && \
     cd /openwrt && \
-    svn co svn://svn.openwrt.org/openwrt/branches/backfire -r 26962 && \
-    cd ~/backfire && \
+    git clone http://git.openwrt.org/10.03/openwrt.git && \
+    cd openwrt && \
     ./scripts/feeds update -a && \
     ./scripts/feeds install -a
     
