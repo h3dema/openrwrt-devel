@@ -8,10 +8,10 @@ RUN apt-get -y update && \
 RUN mkdir /openwrt && \
     cd /openwrt && \
     git clone http://git.openwrt.org/10.03/openwrt.git && \
-    mv openwrt backfire && \
     git clone http://git.openwrt.org/10.03/packages.git && \
+    mv openwrt backfire && \
     cd backfire && \
     ./scripts/feeds update -a && \
     ./scripts/feeds install -a
     
- 
+RUN cd /openwrt
