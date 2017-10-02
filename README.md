@@ -39,4 +39,4 @@ make menuconfig
 make -j4
 ```
 This takes time...
-
+The compiled firmware and packages are placed in /openwrt/backfire/bin/brcm-2.4/
