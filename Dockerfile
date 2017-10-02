@@ -3,7 +3,8 @@ FROM docker.io/ubuntu:14.04
 RUN apt-get -y update && \
     apt-get -y upgrade && \
     apt-get -y install build-essential git-core git wget && \
-    apt-get -y install subversion libncurses5-dev zlib1g-dev gawk flex quilt xsltproc
+    apt-get -y install subversion libncurses5-dev zlib1g-dev gawk flex quilt xsltproc && \
+    apt-get -y install unzip python vim
 
 RUN mkdir /openwrt && \
     cd /openwrt && \
@@ -12,6 +13,23 @@ RUN mkdir /openwrt && \
     mv openwrt backfire && \
     cd backfire && \
     ./scripts/feeds update -a && \
-    ./scripts/feeds install -a
-    
-RUN cd /openwrt
+    ./scripts/feeds install -a && \
+    mv feeds.conf.default feeds.conf
+    cd /openwrt
+    mv packages/* backfire/package/ && \
+
+# make default configuration
+RUN useradd --home /home/openwrt openwrt && \
+    chown -R openwrt /openwrt && \
+    su - openwrt && \
+    cd /openwrt/backfire && \
+    make defconfig && \
+    exit
+
+COPY bashrc /home/openwrt/.bashrc
+
+RUN cd /openwrt/backfire && \
+    echo 'src-git openvswitch git://github.com/schuza/openvswitch.git' >> feeds.conf
+    ./scripts/feeds update openvswitch && \
+    ./scripts/feeds install -a -p openvswitch
+  
