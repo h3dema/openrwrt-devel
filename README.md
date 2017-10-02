@@ -15,6 +15,6 @@ sudo apt-get install -y docker.io
 The following commands (1) download, install and configure the container with all tools and codes, and (2) starts the container, changing to the working directory (/home/ethanol).
 
 ```bash
-docker build -t openwrt github.com/h3dema/ethanol_devel.git
+docker build -t openwrt github.com/h3dema/openwrt-devel.git
 docker run -w /openwrt -it openwrt
 ```
