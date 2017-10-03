@@ -3,6 +3,7 @@
 This repository helps create a docker container to compile and develop openwrt applications.
 It downloads OpenWRT Backfire 10.03 (compatible with our Linksys devices).
 If you want other version, you can edit the Dockerfile.
+This repository automatically downloads openvswitch implementation to the packages directory, so you can compile create an image with openvswitch.
 
 ## Installation
 
@@ -26,8 +27,9 @@ docker run -w /openwrt/backfire -u openwrt -it openwrt
 
 #### To select packages
 
-Use menuconfig to select the appropriate platform. The default is brcm_2_4 (for our linksys devices).
+Use *menuconfig* to select the appropriate platform. The default is brcm_2_4 (for our linksys devices).
 You can also use the menu to select which package will be compiled and available to install (using opkg).
+By default, some network tools like iw, netcat, iperf, tcpdump and openvswitch are already selected as modules that make will compile.
 
 ```bash
 make menuconfig
@@ -38,5 +40,5 @@ make menuconfig
 ```bash
 make -j4
 ```
-This takes time...
-The compiled firmware and packages are placed in /openwrt/backfire/bin/brcm-2.4/
+This **takes time**...
+The compiled firmware and packages are placed in */openwrt/backfire/bin/brcm-2.4/*
