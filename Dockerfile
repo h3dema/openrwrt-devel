@@ -26,7 +26,7 @@ RUN useradd --home /home/openwrt openwrt && \
     chown -R openwrt /openwrt
 
 
-COPY config /openwrt/backfire/config
+COPY config /openwrt/backfire/.config
 
 COPY bashrc /home/openwrt/.bashrc
 RUN chown -R openwrt /home/openwrt && \
