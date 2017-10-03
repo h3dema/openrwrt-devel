@@ -42,3 +42,9 @@ make -j4
 ```
 This **takes time**...
 The compiled firmware and packages are placed in */openwrt/backfire/bin/brcm-2.4/*
+
+
+# Want more ? ##
+
+See in OpenWRT site [how to build openwrt and use make menuconfig](https://wiki.openwrt.org/doc/howto/build).
+If you want to know how this repository was made, [go to openwrt build](https://wiki.openwrt.org/doc/howto/buildroot.exigence) to see. Also read [about toolchain](https://wiki.openwrt.org/about/toolchain).
